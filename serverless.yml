@@ -1,0 +1,92 @@
+service: sls-reto-rimac
+frameworkVersion: '3'
+custom:
+    autoswagger:
+      title: 'RETO RIMAC'
+      apiType: 'httpApi'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-west-2
+  documentation:
+    components: ${file(docs/Planet.json)}
+  environment:
+    DYNAMO_TABLE: PlanetsTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-west-2:058264470307:table/TaskTable
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  getFilmSwapi:
+    handler: src/functions/films/getFilmSwapi.getFilmSwapi
+    events:
+      - httpApi:
+          path: /films/swapi/{id}
+          method: get
+  getFilmsSwapi:
+    handler: src/functions/films/getFilmsSwapi.getFilmsSwapi
+    events:
+      - httpApi:
+          path: /films/swapi
+          method: get
+  addPlanet:
+    handler: src/functions/planets/addPlanet.addPlanet
+    events:
+      - httpApi:
+          path: /planets
+          method: post
+          bodyType: 'APPLICATION_JSON'
+          request:
+            schema:
+              $ref: 'file:Planet.json#/Planet'
+          response:
+            statusCodes:
+              '201':
+                pattern: ''
+                description: User created successfully 1
+              '400':
+                pattern: ''
+                description: Bad request
+              '500':
+                pattern: ''
+                description: Internal server error
+  getPlanets:
+    handler: src/functions/planets/getPlanets.getPlanets
+    events:
+      - httpApi:
+          path: /planets
+          method: get
+  getPlanet:
+    handler: src/functions/planets/getPlanet.getPlanet
+    events:
+      - httpApi:
+          path: /planets/{id}
+          method: get
+
+resources:
+  Resources:
+    TaskTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: PlanetsTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+plugins:
+  - serverless-offline
+  - serverless-auto-swagger
+  - serverless-jest-plugin

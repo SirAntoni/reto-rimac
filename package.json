@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1618.0",
+    "uuid": "^9.0.1"
+  },
+  "name": "sls-reto-rimac",
+  "license": "ISC",
+  "scripts": {
+    "dev": "sls offline start",
+    "test":"jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "serverless-auto-swagger": "^3.0.0",
+    "serverless-jest-plugin": "^0.4.0",
+    "serverless-offline": "^13.5.0"
+  }
+}

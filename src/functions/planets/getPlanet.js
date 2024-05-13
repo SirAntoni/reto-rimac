@@ -2,7 +2,7 @@ const { conexion } = require('../../libs/db')
 const responseJson = require('../../libs/response')
 const TableName = require('../utils/constant')
 
-const getPlanet = async (event) => {
+const handler = async (event) => {
   try {
 
     const { id } = event.pathParameters
@@ -14,4 +14,4 @@ const getPlanet = async (event) => {
   }
 }
 
-module.exports = { getPlanet }
+module.exports = { handler }

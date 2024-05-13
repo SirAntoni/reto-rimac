@@ -1,6 +1,0 @@
-custom:
-  documentatio:
-    models:
-      - name: "ErrorResponse"
-        description: "This is an error"
-        contentType: "application/json"

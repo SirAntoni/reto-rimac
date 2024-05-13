@@ -2,7 +2,7 @@ const {conexion} = require('../../libs/db')
 const responseJson = require('../../libs/response')
 const TableName =require('../utils/constant')
 
-const getPlanets = async () => {
+const handler = async () => {
   try {
     const client = conexion();
     const result = await client.scan({ TableName }).promise()
@@ -12,4 +12,4 @@ const getPlanets = async () => {
   }
 }
 
-module.exports = {getPlanets}
+module.exports = {handler}

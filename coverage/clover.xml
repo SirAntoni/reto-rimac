@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1715586845498" clover="3.2.0">
+  <project timestamp="1715586845498" name="All files">
+    <metrics statements="65" coveredstatements="60" conditionals="12" coveredconditionals="10" methods="12" coveredmethods="11" elements="89" coveredelements="81" complexity="0" loc="65" ncloc="65" packages="4" files="6" classes="6"/>
+    <package name="src.functions.films">
+      <metrics statements="23" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="getFilmSwapi.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/src/functions/films/getFilmSwapi.js">
+        <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+      <file name="getFilmsSwapi.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/src/functions/films/getFilmsSwapi.js">
+        <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.functions.utils">
+      <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <file name="traducir.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/src/functions/utils/traducir.js">
+        <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.libs">
+      <metrics statements="21" coveredstatements="20" conditionals="7" coveredconditionals="5" methods="5" coveredmethods="5"/>
+      <file name="error.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/src/libs/error.js">
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="response.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/src/libs/response.js">
+        <metrics statements="17" coveredstatements="16" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="test">
+      <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="util.js" path="/Users/antonyalfredoculquicarranza/Documents/sls-reto-rimac/test/util.js">
+        <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

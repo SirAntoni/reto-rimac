@@ -28,7 +28,7 @@ functions:
           path: /
           method: get
   getFilmSwapi:
-    handler: src/functions/films/getFilmSwapi.getFilmSwapi
+    handler: src/functions/films/getFilmSwapi.handler
     events:
       - httpApi:
           path: /films/swapi/{id}
@@ -48,7 +48,7 @@ functions:
               },
           }
   getFilmsSwapi:
-    handler: src/functions/films/getFilmsSwapi.getFilmsSwapi
+    handler: src/functions/films/getFilmsSwapi.handler
     events:
       - httpApi:
           path: /films/swapi
@@ -63,7 +63,7 @@ functions:
               },
           }
   addPlanet:
-    handler: src/functions/planets/addPlanet.addPlanet
+    handler: src/functions/planets/addPlanet.handler
     events:
       - httpApi:
           path: /planets
@@ -81,7 +81,7 @@ functions:
 
           }
   getPlanets:
-    handler: src/functions/planets/getPlanets.getPlanets
+    handler: src/functions/planets/getPlanets.handler
     events:
       - httpApi:
           path: /planets
@@ -96,7 +96,7 @@ functions:
               },
           }
   getPlanet:
-    handler: src/functions/planets/getPlanet.getPlanet
+    handler: src/functions/planets/getPlanet.handler
     events:
       - httpApi:
           path: /planets/{id}

@@ -1,7 +1,7 @@
 const responseJson = require('../../libs/response')
 const traducir = require('../utils/traducir')
 
-const getFilmsSwapi = async (event) => {
+const handler = async (event) => {
   try {
     const api = await fetch(`https://swapi.py4e.com/api/films`)
     const data = await api.json()
@@ -12,4 +12,4 @@ const getFilmsSwapi = async (event) => {
   }
 }
 
-module.exports = {getFilmsSwapi}
+module.exports = {handler}

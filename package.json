@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "sls offline start",
     "test": "jest",
-    "openapi": "serverless openapi generate"
+    "deploy": "sls deploy"
   },
   "devDependencies": {
     "jest": "^29.7.0",

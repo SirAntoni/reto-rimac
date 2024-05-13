@@ -2,15 +2,15 @@ service: sls-reto-rimac
 frameworkVersion: '3'
 custom:
     autoswagger:
-      title: 'RETO RIMAC'
-      apiType: 'httpApi'
+        title: 'Reto Rimac'
+        description: 'Reto Técnico encargado por Indra.'
+        apiType: 'httpApi'
+        typefiles: ['./src/types/api-planets.d.ts', './src/types/api-films.d.ts']
 
 provider:
   name: aws
   runtime: nodejs18.x
   region: us-west-2
-  documentation:
-    components: ${file(docs/Planet.json)}
   environment:
     DYNAMO_TABLE: PlanetsTable
   iamRoleStatements:
@@ -33,45 +33,88 @@ functions:
       - httpApi:
           path: /films/swapi/{id}
           method: get
+          responseData: {
+              201: {
+                  description: 'Devuelve resultado de la busqueda por id de SWApi',
+                  bodyType: "getFilm",
+              },
+              404: {
+                  description: 'Devuelve un mensaje con le texto No se encontraron resultados',
+                  bodyType: "response"
+              },
+              500: {
+                  description: 'Ocurrio un problema',
+                  bodyType: "response"
+              },
+          }
   getFilmsSwapi:
     handler: src/functions/films/getFilmsSwapi.getFilmsSwapi
     events:
       - httpApi:
           path: /films/swapi
           method: get
+          responseData: {
+              201: {
+                  description: 'Devuelve un array de objetos con los resultados de SWApi | films'
+              },
+              500: {
+                  description: 'Ocurrio un problema',
+                  bodyType: "response"
+              },
+          }
   addPlanet:
     handler: src/functions/planets/addPlanet.addPlanet
     events:
       - httpApi:
           path: /planets
           method: post
-          bodyType: 'APPLICATION_JSON'
-          request:
-            schema:
-              $ref: 'file:Planet.json#/Planet'
-          response:
-            statusCodes:
-              '201':
-                pattern: ''
-                description: User created successfully 1
-              '400':
-                pattern: ''
-                description: Bad request
-              '500':
-                pattern: ''
-                description: Internal server error
+          bodyType: varPlanet
+          responseData: {
+              201: {
+                  description: 'Devuelve el id del planeta agregado',
+                  bodyType: "addPlanetResponse",
+              },
+              500: {
+                  description: 'Ocurrio un problema',
+                  bodyType: "response"
+              },
+
+          }
   getPlanets:
     handler: src/functions/planets/getPlanets.getPlanets
     events:
       - httpApi:
           path: /planets
           method: get
+          responseData: {
+              200: {
+                  description: 'Devuelve un array de objetos con los resultados de la db planetas'
+              },
+              500: {
+                  description: 'Ocurrio un problema',
+                  bodyType: "response"
+              },
+          }
   getPlanet:
     handler: src/functions/planets/getPlanet.getPlanet
     events:
       - httpApi:
           path: /planets/{id}
           method: get
+          responseData: {
+              201: {
+                  description: 'Devuelve resultado del planeta de Dynamodb',
+                  bodyType: "varPlanet",
+              },
+              404: {
+                  description: 'Devuelve un mensaje con le texto No se encontraron resultados',
+                  bodyType: "response"
+              },
+              500: {
+                  description: 'Ocurrio un problema',
+                  bodyType: "response"
+              },
+          }
 
 resources:
   Resources:
@@ -87,6 +130,6 @@ resources:
           - AttributeName: id
             KeyType: HASH
 plugins:
-  - serverless-offline
   - serverless-auto-swagger
   - serverless-jest-plugin
+  - serverless-offline

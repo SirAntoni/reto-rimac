@@ -7,7 +7,8 @@
   "license": "ISC",
   "scripts": {
     "dev": "sls offline start",
-    "test":"jest"
+    "test": "jest",
+    "openapi": "serverless openapi generate"
   },
   "devDependencies": {
     "jest": "^29.7.0",

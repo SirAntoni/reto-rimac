@@ -373,6 +373,5 @@
       "type": "object"
     }
   },
-  "securityDefinitions": {},
-  "host": "https://g064thsul3.execute-api.us-west-2.amazonaws.com"
+  "securityDefinitions": {}
 };
